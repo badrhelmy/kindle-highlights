@@ -13,7 +13,6 @@ jobs:
           image: ghcr.io/arkalim/kindle-to-notion:master
           run: node /code/dist/main.js
           options: |
-            -v ${{ github.workspace }}:/code/resources 
             -e BOOK_DB_ID=${{ vars.BOOK_DB_ID }}
             -e NOTION_API_KEY=${{ secrets.NOTION_API_KEY }}
 
@@ -21,7 +20,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           message: Commit cache changes
-          add: sync.yaml
+          add: sync.json
 
       - name: Push cache changes
         uses: ad-m/github-push-action@master
