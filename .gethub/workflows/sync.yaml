@@ -11,9 +11,9 @@ jobs:
         uses: addnab/docker-run-action@v3 
         with:
           image: ghcr.io/arkalim/kindle-to-notion:master
-          run: node / code/dist/main.js 
+          run: node/code/dist/main.js 
           options:
-            -v $(< github.workspace }}:/ code/resources
+            -v $(< github.workspace }}:/code/resources
             -e BOOK_DB_ID=${€ vars.B00K_DB_ID }}
             -e NOTION_API_KEY=$({ secrets.NOTION_API_KEY })
             
